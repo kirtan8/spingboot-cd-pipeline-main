@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: wezvatechdemo
-        image: cary01/wezvatechbackend:9
+        image: cary01/democicd
         ports:
         - containerPort: 8080
 
