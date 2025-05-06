@@ -1,5 +1,5 @@
 pipeline {
- agent { label 'demo' }
+ agent any
  parameters {
      password(name: 'PASSWD', defaultValue: '', description: 'Please Enter your Gitlab password')
      string(name: 'IMAGETAG', defaultValue: '1', description: 'Please Enter the Image Tag to Deploy?')
@@ -11,10 +11,10 @@ pipeline {
     steps { 
         git branch: 'springboot', credentialsId: 'GitlabCred', url: 'https://github.com/kirtan8/spingboot-cd-pipeline-main.git'
       dir ("./${params.environment}") {
-              sh "sed -i 's/image: adamtravis.*/image: adamtravis\\/democicd:$IMAGETAG/g' deployment.yml" 
+              sh "sed -i 's/image: cary01.*/image: cary01\\/democicd:$IMAGETAG/g' deployment.yml" 
 	    }
 	    sh 'git commit -a -m "New deployment for Build $IMAGETAG"'
-	    sh "git push https://scmlearningcentre:$PASSWD@gitlab.com/learndevopseasy/devsecops/spingboot-cd-pipeline.git"
+	    sh "git push https://scmlearningcentre:$PASSWD@github.com/kirtan8/spingboot-cd-pipeline-main.git"
     }
   }
  }
