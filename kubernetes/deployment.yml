@@ -1,21 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: CTdemo
+  name: wezvatechdemo
   labels:
-    app: CTdemo
+    app: wezvatechdemo
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: CTdemo
+      app: wezvatechdemo
   template:
     metadata:
       labels:
-        app: CTdemo
+        app: wezvatechdemo
     spec:
       containers:
-      - name: CTdemo
-        image: cary01/democicd:9
+      - name: wezvatechdemo
+        image: cary01/wezvatechbackend:9
         ports:
         - containerPort: 8080
+
